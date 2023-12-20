@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contador</title>
+<style>
+*{
+margin:0;
+padding:0;
+}
+.content{
+display:flex;
+flex-direction:column;
+padding:20px;
+
+}
+.flex-center{
+width:250px;
+align-items:center;
+border:1px solid red;
+
+}
+
+.flex{
+display:flex;
+}
+.flex-dir-col{
+flex-direction:column;
+}
+.text-center{
+	text-align:center;
+	
+}
+.style-number{
+height:50px; width:50px; border:1px solid red; display:flex; align-items:center; justify-content:center;
+}
+
+.browser-center{
+
+height:100vh;
+display:flex;
+justify-content:center;
+align-items: center;
+}
+
+</style>
+</head>
+<body class="browser-center flex flex-dir-col" >
+<h1>Sistema de Contagem </h1>
+
+<div class="flex-center content">
+
+	<div class=" content ">
+		<label>Quantos Entram:</label>
+		<input type="text" id="qtdEnt" readonly ></input> 
+		<label>Quantos Passam:</label>
+		<input type="text" id="qtdPass" readonly ></input>
+		<label>Quantos Compram:</label>
+		<input type="text" id="qtdBuy" readonly ></input>
+	</div>
+	
+	<div class="flex">
+		<div class ="text-center">
+			<label >Entrar</label>	
+			<div class="style-number">
+				<div><h2>1</h2></div>
+			</div>
+		</div>
+		<div style="text-align:center; margin: 0 5px 0 5px">
+			<label >Passar</label>	
+			<div class="style-number">
+				<div><h2>2</h2></div>
+			</div>
+		</div>
+		<div class ="text-center">
+			<label >Comprar</label>	
+			<div class="style-number">
+				<div><h2>3</h2></div>
+			</div>
+		</div>	
+		<div class ="text-center">
+			<label >Apagar</label>	
+			<div class="style-number">
+				<div><h5>Delet</h5></div>
+			</div>
+		</div>
+		
+	</div>
+	<h5>Aperte o número correspondente para preencher os campos</h5>
+</div>
+<script>
+const campo = [
+ ["qtdEnt", 0],
+ ["qtdPass", 0],
+ ["qtdBuy",0]
+]
+
+const tamanho = Object.keys(campo).length;
+
+document.addEventListener('keyup', function(event){
+		
+		if(((event.which==97)&&(event.keyCode==97))||((event.which==49)&&(event.keyCode==49))){
+			campo[0][1]++
+			 document.getElementById("qtdEnt").value = campo[0][1];
+		}
+		if(((event.which==98)&&(event.keyCode==98))||((event.which==50)&&(event.keyCode==50))){
+			campo[1][1]++
+			 document.getElementById("qtdPass").value = campo[1][1];
+		}
+		if(((event.which==99)&&(event.keyCode==99))||((event.which==51)&&(event.keyCode==51))){
+			campo[2][1]++
+			 document.getElementById("qtdBuy").value = campo[2][1];
+		}
+		if(((event.which==46)&&(event.keyCode==46))||((event.which==27)&&(event.keyCode==27))){
+			
+			for(let i = 0; i<campo.length; i++ ){
+				campo[i][1]=0
+				 let clear = campo[i][1]=0;
+				 console.log(clear);
+				
+				document.getElementById(campo[i][0]).value = clear;
+			}								
+				
+		}
+		
+		
+		
+	
+})
+
+
+</script>
+
+</body>
+</html>
